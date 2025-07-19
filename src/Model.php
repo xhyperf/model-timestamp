@@ -11,4 +11,17 @@ class Model extends BaseModel
      * @var string|null
      */
     protected ?string $dateFormat = 'U';
+
+    /**
+     * 软删除字段名
+     */
+    public const string DELETED_AT = 'deleted_at';
+
+    /**
+     * 日期字段
+     * @var array
+     */
+    protected array $dates = [
+        self::DELETED_AT,
+    ];
 }
