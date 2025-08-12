@@ -51,14 +51,14 @@ trait SoftDeletes
 
         $time = $this->freshTimestamp();
 
-        $columns = [$this->getDeletedAtColumn() => $this->fromDateTime($time)];
+        $columns = [$this->getDeletedAtColumn() => $time->format('U')];
 
         $this->{$this->getDeletedAtColumn()} = $time;
 
         if ($this->timestamps && ! ! $this->getUpdatedAtColumn()) {
             $this->{$this->getUpdatedAtColumn()} = $time;
 
-            $columns[$this->getUpdatedAtColumn()] = $this->fromDateTime($time);
+            $columns[$this->getUpdatedAtColumn()] = $time->format('U');
         }
 
         $query->update($columns);
