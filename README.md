@@ -2,6 +2,9 @@
 
 数据表的时间字段使用时间戳格式，支持模型的软删除功能。
 
+使用时间戳格式优点：
+- 日志中时间为数字形式，可从数据库复制 `updated_at` 值直接在日志系统搜索，就可得到记录变更的相关日志
+
 # 使用
 
 创建模型时，使用 `XHyperf\ModelTimestamp\Model` 代替 `Hyperf\Database\Model\Model`。
